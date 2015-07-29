@@ -1,0 +1,25 @@
+box: golang 
+
+build:
+    steps:
+        - shellcheck:
+            files: run.sh
+        - wercker/golint
+        - script:
+            name: Build
+            code: |
+              go build -o post_to_server
+        - script:
+            name: Debug
+            code: |
+              ls -lah .
+deploy:
+  steps:
+    - script:
+        name: debug
+        code: |-
+          ls -lah .
+    - script:
+        name: test
+        code: |
+          WERCKER_WEBHOOK_URL=http://172.17.42.1:4001/ ./run.sh

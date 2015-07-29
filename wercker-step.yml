@@ -1,0 +1,7 @@
+name: webhook 
+version: 0.0.1
+description: Wercker step post Wercker env vars as json data to given url 
+properties:
+  url:
+    type: string
+    required: true
