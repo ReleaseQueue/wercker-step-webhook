@@ -5,5 +5,6 @@ if [ ! -n "$WERCKER_WEBHOOK_URL" ]; then
   exit 1
 fi
 
-./post_to_server "$WERCKER_WEBHOOK_URL"
+SCRIPT_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+$SCRIPT_PATH/post_to_server "$WERCKER_WEBHOOK_URL"
 
