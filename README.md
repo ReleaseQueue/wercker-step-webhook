@@ -3,7 +3,7 @@ A Wercker step that calls a webhook for other services to receive.
 
 Example usage:
 ```
-      - releasequeue/webhook@0.0.4:
+      - releasequeue/webhook@0.0.5:
          url: "http://your.domain/your/path"
 ```
 
@@ -38,6 +38,8 @@ Will send a POST to the configured url containing a json object with the followi
  "WERCKER_WEBHOOK_URL" : "http://your_url"
 }
 ```
-Can e used in both "build" and "dev" pipelines and will contain the appropriate parameters.
+Can be used in both "build" and "deploy" pipelines and will contain the appropriate parameters.
+
+Specifying https servers based on self signed certificates, will fail the step.
 
 Pull requests are welcome.
